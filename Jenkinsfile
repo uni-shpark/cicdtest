@@ -11,14 +11,18 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
+        echo "Checkout Source START"
         git 'https://github.com/uni-shpark/cicdtest.git'
+        echo "Checkout Source END"
       }
     }
 
     stage('Build image') {
       steps{
         script {
+          echo "Build image START"
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          echo "Build image END"
         }
       }
     }
@@ -29,9 +33,11 @@ pipeline {
            }
       steps{
         script {
+          echo "Push Image START"
           docker.withRegistry( "", registryCredential ) {
             dockerImage.push()
           }
+          echo "Push Image END"
         }
       }
     }
@@ -39,8 +45,9 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          echo "test"
+          echo "Deploy App START"
           kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          echo "Deploy App END"
         }
       }
     }
