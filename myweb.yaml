@@ -41,7 +41,7 @@ spec:
           persistentVolumeClaim:
             claimName: mywebclaim
       containers:
-      - image: testweb:12
+      - image: suhyung007/testweb:18
         imagePullPolicy: Always
         name: myweb
         volumeMounts:
