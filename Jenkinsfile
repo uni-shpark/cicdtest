@@ -27,21 +27,6 @@ pipeline {
       }
     }
 
-    stage('Push Image') {
-      environment {
-               registryCredential = 'dockerhub'
-           }
-      steps{
-        script {
-          echo "Push Image START"
-          docker.withRegistry( "https://registry.hub.docker.com", registryCredential ) {
-            dockerImage.push()
-          }
-          echo "Push Image END"
-        }
-      }
-    }
-
     stage('Deploy App') {
       steps {
         script {
