@@ -10,7 +10,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  storageClassName: space-efficient
+  storageClassName: default
   volumeMode: Filesystem
 ---
 apiVersion: apps/v1
