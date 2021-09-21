@@ -21,7 +21,7 @@ pipeline {
       steps{
         script {
           echo "Build image START"
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build("my-image:${env.BUILD_ID}")
           echo "Build image END"
         }
       }
