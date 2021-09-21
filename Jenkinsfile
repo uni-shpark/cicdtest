@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "jfcoronado/myweb"
+    registry = "uni-shpark/myweb"
     dockerImage = ""
   }
 
@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/jfcoronado/playjenkins.git'
+        git 'https://github.com/uni-shpark/cicdtest.git'
       }
     }
 
