@@ -20,8 +20,8 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          echo "Build image START"
-          dockerImage = docker.build("my-image:${env.BUILD_ID}")
+          echo "Build image START $BUILD_NUMBER"
+          dockerImage = docker.build("testweb:$BUILD_NUMBER")
           echo "Build image END"
         }
       }
